@@ -1,12 +1,16 @@
 <!-- DataTable.vue -->
   <template>
+    <div class="top-division">
+      <input type="checkbox" v-model="isSuccess" @change="handleCheckboxChange">
+      <label>Is Successful?</label>
+    </div>
     <div class="my-division">
-        <button class="my-button" @click="triggerOperationA">Operation A</button>
-        <button class="my-button" @click="triggerOperationB">Operation B</button>
-        <button class="my-button" @click="triggerOperationC">Operation C</button>
-        <button class="my-button" @click="triggerOperationD">Operation D</button>
-        <button class="my-button" @click="triggerOperationE">Operation E</button>
-        <button class="my-button" @click="triggerOperationF">Operation F</button>
+      <button class="my-button" @click="triggerOperationA">Operation A</button>
+      <button class="my-button" @click="triggerOperationB">Operation B</button>
+      <button class="my-button" @click="triggerOperationC">Operation C</button>
+      <button class="my-button" @click="triggerOperationD">Operation D</button>
+      <button class="my-button" @click="triggerOperationE">Operation E</button>
+      <button class="my-button" @click="triggerOperationF">Operation F</button>
     </div>
   </template>
 
@@ -15,11 +19,13 @@
 
   export default {
     data() {
-      return {};
+      return {
+        isSuccess: true
+      };
     },
     methods: {
-      handleData(data) {
-        this.url = data;
+      handleCheckboxChange() {
+        console.log("IN: handleCheckboxChange - isSuccess=" + this.isSuccess)
       },
       async triggerOperationA() {
         const apiUrl = 'http://127.0.0.1:8002/operation-a/'; // Replace with your actual API endpoint
@@ -28,8 +34,11 @@
                 'Content-Type': 'application/json'
             }
         };
+        const requestBody = {
+            is_success: this.isSuccess
+        };
         try {
-          const response = await axios.get(apiUrl, config);
+          const response = await axios.post(apiUrl, requestBody, config);
         } catch (error) {
           console.error('Error fetching data:', error);
         } 
@@ -41,8 +50,11 @@
                 'Content-Type': 'application/json'
             }
         };
+        const requestBody = {
+            is_success: this.isSuccess
+        };
         try {
-          const response = await axios.get(apiUrl, config);
+          const response = await axios.post(apiUrl, requestBody, config);
         } catch (error) {
           console.error('Error fetching data:', error);
         } 
@@ -54,8 +66,11 @@
                 'Content-Type': 'application/json'
             }
         };
+        const requestBody = {
+            is_success: this.isSuccess
+        };
         try {
-          const response = await axios.get(apiUrl, config);
+          const response = await axios.post(apiUrl, requestBody, config);
         } catch (error) {
           console.error('Error fetching data:', error);
         } 
@@ -67,8 +82,11 @@
                 'Content-Type': 'application/json'
             }
         };
+        const requestBody = {
+            is_success: this.isSuccess
+        };
         try {
-          const response = await axios.get(apiUrl, config);
+          const response = await axios.post(apiUrl, requestBody, config);
         } catch (error) {
           console.error('Error fetching data:', error);
         } 
@@ -80,8 +98,11 @@
                 'Content-Type': 'application/json'
             }
         };
+        const requestBody = {
+            is_success: this.isSuccess
+        };
         try {
-          const response = await axios.get(apiUrl, config);
+          const response = await axios.post(apiUrl, requestBody, config);
         } catch (error) {
           console.error('Error fetching data:', error);
         } 
@@ -93,8 +114,11 @@
                 'Content-Type': 'application/json'
             }
         };
+        const requestBody = {
+            is_success: this.isSuccess
+        };
         try {
-          const response = await axios.get(apiUrl, config);
+          const response = await axios.post(apiUrl, requestBody, config);
         } catch (error) {
           console.error('Error fetching data:', error);
         } 
@@ -117,9 +141,14 @@
   th {
     background-color: #f2f2f2;
   }
-  .my-division {
+  .top-division {
     padding-top: 82px;
-    padding-bottom: 30px;
+    padding-bottom: 5px;
+    font-size: 0.8rem;
+  }
+  .my-division {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);

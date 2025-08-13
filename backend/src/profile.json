@@ -1,0 +1,8 @@
+[
+    {"operation": "Operation A", "success": 45, "failure": 3},
+    {"operation": "Operation B", "success": 27, "failure": 5},
+    {"operation": "Operation C", "success": 45, "failure": 3},
+    {"operation": "Operation D", "success": 22, "failure": 7},
+    {"operation": "Operation E", "success": 45, "failure": 3},
+    {"operation": "Operation F", "success": 71, "failure": 1}
+]
